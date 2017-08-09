@@ -1,13 +1,13 @@
 // @flow
 import getNextInterval from '../../utils/getNextInterval'
-import { notify } from "../../utils/notifications"
+import { notify } from '../../utils/notifications'
 import intervals from '../../constants/intervals'
 
 const actionTypes = {
-  'SET_REST_OF_INTERVAL': 'SET_REST_OF_INTERVAL',
-  'SET_TOTAL_SPENT_TIME': 'SET_TOTAL_SPENT_TIME',
-  'SET_CURRENT_INTERVAL': 'SET_CURRENT_INTERVAL',
-  'DECREMENT': 'DECREMENT',
+  SET_REST_OF_INTERVAL: 'SET_REST_OF_INTERVAL',
+  SET_TOTAL_SPENT_TIME: 'SET_TOTAL_SPENT_TIME',
+  SET_CURRENT_INTERVAL: 'SET_CURRENT_INTERVAL',
+  DECREMENT: 'DECREMENT',
 }
 type ActionType = $Keys<typeof actionTypes>
 
@@ -15,9 +15,12 @@ let intervalId = 0
 
 // Action Creators
 
-export function init(): (dispatch: () => any, getState: () => GlobalState) => void {
+export function init(): (
+  dispatch: () => any,
+  getState: () => GlobalState
+) => void {
   return (dispatch: () => any, getState: () => GlobalState) => {
-    const state = getState()
+    const state: GlobalState = getState()
     const restOfInterval = state.settings.intervalDurationsInMin.work * 60
 
     dispatch(setRestOfInterval(restOfInterval))
@@ -51,7 +54,11 @@ export function reset(): any {
     const state = getState()
     const { timer, settings } = state
 
-    dispatch(setRestOfInterval(settings.intervalDurationsInMin[timer.currentInterval] * 60))
+    dispatch(
+      setRestOfInterval(
+        settings.intervalDurationsInMin[timer.currentInterval] * 60
+      )
+    )
   }
 }
 
@@ -63,22 +70,27 @@ export function next(): any {
   }
 }
 
-
-function setRestOfInterval(restOfIntervalInSec: number): { type: ActionType, restOfIntervalInSec: number } {
+function setRestOfInterval(
+  restOfIntervalInSec: number
+): { type: ActionType, restOfIntervalInSec: number } {
   return {
     type: actionTypes.SET_REST_OF_INTERVAL,
     restOfIntervalInSec,
   }
 }
 
-function setTotalSpentTime(totalSpentTimeInMin: number): { type: ActionType, totalSpentTimeInMin: number } {
+function setTotalSpentTime(
+  totalSpentTimeInMin: number
+): { type: ActionType, totalSpentTimeInMin: number } {
   return {
     type: actionTypes.SET_TOTAL_SPENT_TIME,
     totalSpentTimeInMin,
   }
 }
 
-function setCurrentInteval(currentInterval: Interval): { type: ActionType, currentInterval: Interval } {
+function setCurrentInteval(
+  currentInterval: Interval
+): { type: ActionType, currentInterval: Interval } {
   return {
     type: actionTypes.SET_CURRENT_INTERVAL,
     currentInterval,
@@ -87,20 +99,28 @@ function setCurrentInteval(currentInterval: Interval): { type: ActionType, curre
 
 function decrement(): { type: ActionType } {
   return {
-    type: actionTypes.DECREMENT
+    type: actionTypes.DECREMENT,
   }
 }
 
 function goToNextInterval(dispatch: () => void, state: GlobalState) {
   const { timer, settings } = state
 
-  const nextInterval = getNextInterval(timer.currentInterval, timer.totalSpentTimeInMin, settings)
-  const nextTotalSpentTimeInMin = state.timer.totalSpentTimeInMin + settings.intervalDurationsInMin[timer.currentInterval]
+  const nextInterval = getNextInterval(
+    timer.currentInterval,
+    timer.totalSpentTimeInMin,
+    settings
+  )
+  const nextTotalSpentTimeInMin =
+    state.timer.totalSpentTimeInMin +
+    settings.intervalDurationsInMin[timer.currentInterval]
 
   notify(nextInterval)
 
   dispatch(setTotalSpentTime(nextTotalSpentTimeInMin))
-  dispatch(setRestOfInterval(settings.intervalDurationsInMin[nextInterval] * 60))
+  dispatch(
+    setRestOfInterval(settings.intervalDurationsInMin[nextInterval] * 60)
+  )
   dispatch(setCurrentInteval(nextInterval))
 }
 
@@ -117,10 +137,9 @@ export default function reducer(
   action: Object
 ): Timer {
   switch (action.type) {
-
     case actionTypes.DECREMENT:
       return Object.assign({}, state, {
-        restOfIntervalInSec: state.restOfIntervalInSec - 1
+        restOfIntervalInSec: state.restOfIntervalInSec - 1,
       })
 
     case actionTypes.SET_TOTAL_SPENT_TIME:

@@ -17,4 +17,3 @@ function addZero(n: number): string {
 }
 
 const getSeconds = (time: number): number => time % 60
-

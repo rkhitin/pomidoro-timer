@@ -46,7 +46,7 @@ const AppWithRouter = ({ timer }: { timer: number }) =>
 
       <Title>Помидор</Title>
 
-      {/*<ProgressBar />*/}
+      <ProgressBar />
 
       <Route exact path="/" component={Timer} />
       <Route path="/todo" component={Todo} />

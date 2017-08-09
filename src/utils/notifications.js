@@ -13,9 +13,7 @@ export function getPermission(): void {
     window.Notification.requestPermission()
 }
 
-export function notify(
-  nextInterval: IntervalType,
-): void {
+export function notify(nextInterval: Interval): void {
   if (!('Notification' in window))
     return alert('Ваш браузер не поддерживает уведомления.')
 
@@ -24,13 +22,17 @@ export function notify(
   if (Notification.permission !== 'granted')
     return alert('Нужно разрешить уведомления в браузере!')
 
+  // TODO enable notification
   // new Notification(getMessage(nextInterval))
 }
 
-function getMessage(nextInterval: IntervalType): string {
+function getMessage(nextInterval: Interval): string {
   switch (nextInterval) {
-    case intervals.smallBreak: return 'Маленький перерыв'
-    case intervals.bigBreak: return 'Большой перерыв'
-    default: return 'Пора поработать'
+    case intervals.smallBreak:
+      return 'Маленький перерыв'
+    case intervals.bigBreak:
+      return 'Большой перерыв'
+    default:
+      return 'Пора поработать'
   }
 }

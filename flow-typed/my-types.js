@@ -26,5 +26,3 @@ declare type IntervalScheme = {
   activeWidth: string,
   type: Interval,
 }
-
-

@@ -64,7 +64,7 @@ const initialState: Settings = {
 
 export default function reducer(
   state: Settings = initialState,
-  action: Action,
+  action: Action
 ): Settings {
   switch (action.type) {
     case actionTypes.SET_WORK_DURATION:
