@@ -9,35 +9,31 @@ import {
   setTargetNumberOfPomidoro,
   setWorkDuration,
 } from '../redux/modules/settings'
-import Settings from '../pages/Settings'
+import SettingsPage from '../pages/Settings'
 
 class SettingsContainer extends React.Component {
-  work = {
-    increase: () =>
-       this.props.setWorkDuration(this.props.settings.durations.work + 1),
-    decrease: () =>
-      this.props.setWorkDuration(this.props.settings.durations.work - 1),
-    set: event =>
-      this.props.setWorkDuration(this._parseInput(event.target.value)),
-  }
+  set = (field: string, rawValue: string | number) => {
+    const value = this._parseInput(rawValue)
+    const actionCreator = this.props[`set${field}`]
+
+    actionCreator(value)
+  };
 
   render() {
-    return <Settings
-      settings={this.props.settings}
-      actions={{
-        work: this.work
-      }}
-    />
+    return <SettingsPage settings={this.props.settings} set={this.set} />
   }
 
-  _parseInput(value) {
-    const valueInt = parseInt(value)
+  _parseInput(value: string | number): number {
+    const valueInt = parseInt(value, 10)
 
     switch (true) {
-      case (isNaN(valueInt)): return 0
-      case (valueInt > 60): return 60
-      case (valueInt < 0): return 0
-      default: return 0
+      case valueInt > 60:
+        return 60
+      case valueInt < 0:
+      case isNaN(valueInt):
+        return 1
+      default:
+        return valueInt
     }
   }
 }
@@ -54,7 +50,8 @@ function mapDispatchToProps(dispatch) {
     setSmallBreakDuration: value => dispatch(setSmallBreakDuration(value)),
     setBigBreakDuration: value => dispatch(setBigBreakDuration(value)),
     setPomidoroInRound: value => dispatch(setPomidoroInRound(value)),
-    setTargetNumberOfPomidoro: value => dispatch(setTargetNumberOfPomidoro(value)),
+    setTargetNumberOfPomidoro: value =>
+      dispatch(setTargetNumberOfPomidoro(value)),
   }
 }
 

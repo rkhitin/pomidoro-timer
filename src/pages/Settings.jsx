@@ -2,35 +2,120 @@
 
 import React from 'react'
 
-const Settings = ({
+const SettingsPage = ({
   settings,
-  actions,
+  set,
 }: {
-  settings: SettingsStateType,
-  actions: Object,
-}) => {
-  console.dir(actions)
-  return (
+  settings: Settings,
+  set: (field: string, value: string | number) => void,
+}) =>
+  <div>
     <div>
-      <div>
-        Время работы
-        <hr />
-        <button onClick={actions.work.decrease}>
-          <i className="fa fa-minus" />
-        </button>
-        <input
-          type="text"
-          value={settings.durations.work}
-          onChange={actions.work.set}
-        />
-        <button onClick={actions.work.decrease}>
-          <i className="fa fa-plus" />
-        </button>
-      </div>
+      Время работы
+      <button
+        onClick={() =>
+          set('WorkDuration', settings.intervalDurationsInMin.work - 1)}>
+        <i className="fa fa-minus" />
+      </button>
+      <input
+        type="text"
+        value={settings.intervalDurationsInMin.work}
+        onChange={event => set('WorkDuration', event.target.value)}
+      />
+      <button
+        onClick={() =>
+          set('WorkDuration', settings.intervalDurationsInMin.work + 1)}>
+        <i className="fa fa-plus" />
+      </button>
     </div>
-  )
-}
 
-Settings.propTypes = {}
+    <div>
+      Время малого отдыха
+      <button
+        onClick={() =>
+          set(
+            'SmallBreakDuration',
+            settings.intervalDurationsInMin.smallBreak - 1
+          )}>
+        <i className="fa fa-minus" />
+      </button>
+      <input
+        type="text"
+        value={settings.intervalDurationsInMin.smallBreak}
+        onChange={event => set('SmallBreakDuration', event.target.value)}
+      />
+      <button
+        onClick={() =>
+          set(
+            'SmallBreakDuration',
+            settings.intervalDurationsInMin.smallBreak + 1
+          )}>
+        <i className="fa fa-plus" />
+      </button>
+    </div>
 
-export default Settings
+    <div>
+      Время большого отдыха
+      <button
+        onClick={() =>
+          set(
+            'BigBreakDuration',
+            settings.intervalDurationsInMin.bigBreak - 1
+          )}>
+        <i className="fa fa-minus" />
+      </button>
+      <input
+        type="text"
+        value={settings.intervalDurationsInMin.bigBreak}
+        onChange={event => set('BigBreakDuration', event.target.value)}
+      />
+      <button
+        onClick={() =>
+          set(
+            'BigBreakDuration',
+            settings.intervalDurationsInMin.bigBreak + 1
+          )}>
+        <i className="fa fa-plus" />
+      </button>
+    </div>
+
+    <div>
+      Количество помидоров в раунде
+      <button
+        onClick={() => set('PomidoroInRound', settings.pomidoroInRound - 1)}>
+        <i className="fa fa-minus" />
+      </button>
+      <input
+        type="text"
+        value={settings.pomidoroInRound}
+        onChange={event => set('PomidoroInRound', event.target.value)}
+      />
+      <button
+        onClick={() => set('PomidoroInRound', settings.pomidoroInRound + 1)}>
+        <i className="fa fa-plus" />
+      </button>
+    </div>
+
+    <div>
+      Цель на день
+      <button
+        onClick={() =>
+          set('TargetNumberOfPomidoro', settings.targetNumberOfPomidoro - 1)}>
+        <i className="fa fa-minus" />
+      </button>
+      <input
+        type="text"
+        value={settings.targetNumberOfPomidoro}
+        onChange={event => set('TargetNumberOfPomidoro', event.target.value)}
+      />
+      <button
+        onClick={() =>
+          set('TargetNumberOfPomidoro', settings.targetNumberOfPomidoro + 1)}>
+        <i className="fa fa-plus" />
+      </button>
+    </div>
+  </div>
+
+SettingsPage.propTypes = {}
+
+export default SettingsPage

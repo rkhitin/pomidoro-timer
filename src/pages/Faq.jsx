@@ -1,10 +1,6 @@
 import React from 'react'
 
-const Timer = (prop) => (
-  <div>
-    timer
-  </div>
-)
+const Timer = prop => <div>timer</div>
 
 Timer.propTypes = {}
 

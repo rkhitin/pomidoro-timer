@@ -69,23 +69,35 @@ export default function reducer(
   switch (action.type) {
     case actionTypes.SET_WORK_DURATION:
       return Object.assign({}, state, {
-        durations: Object.assign({}, state.intervalDurationsInMin, {
-          work: action.value,
-        }),
+        intervalDurationsInMin: Object.assign(
+          {},
+          state.intervalDurationsInMin,
+          {
+            work: action.value,
+          }
+        ),
       })
 
     case actionTypes.SET_SMALL_BREAK_DURATION:
       return Object.assign({}, state, {
-        durations: Object.assign({}, state.intervalDurationsInMin, {
-          smallBreak: action.value,
-        }),
+        intervalDurationsInMin: Object.assign(
+          {},
+          state.intervalDurationsInMin,
+          {
+            smallBreak: action.value,
+          }
+        ),
       })
 
     case actionTypes.SET_BIG_BREAK_DURATION:
       return Object.assign({}, state, {
-        durations: Object.assign({}, state.intervalDurationsInMin, {
-          bigBreak: action.value,
-        }),
+        intervalDurationsInMin: Object.assign(
+          {},
+          state.intervalDurationsInMin,
+          {
+            bigBreak: action.value,
+          }
+        ),
       })
 
     case actionTypes.SET_POMIDORO_IN_ROUND:

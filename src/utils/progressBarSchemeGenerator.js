@@ -40,35 +40,6 @@ export default function(
         currentIntervalDurationInSec
     }
 
-    // else if (
-    //   innerSpentTimeInMin <
-    //   totalSpentTimeInMin + currentIntervalDurationInMin
-    // ) {
-    //   console.log('active')
-    //   const currentIntervalDurationInSec = currentIntervalDurationInMin * 60
-
-    //   activeWidth =
-    //     100 *
-    //     (currentIntervalDurationInSec - restOfIntervalInSec) /
-    //     currentIntervalDurationInSec
-    // }
-    // console.log(innerSpentTimeInMin, totalSpentTimeInMin, currentIntervalDurationInMin)
-    // if (innerSpentTimeInMin >= totalSpentTimeInMin) {
-    //   if (
-    //     innerSpentTimeInMin <
-    //     totalSpentTimeInMin + currentIntervalDurationInMin
-    //   ) {
-    //     const currentIntervalDurationInSec = currentIntervalDurationInMin * 60
-
-    //     activeWidth =
-    //       100 *
-    //       (currentIntervalDurationInSec - restOfIntervalInSec) /
-    //       currentIntervalDurationInSec
-    //   } else {
-    //     activeWidth = 0
-    //   }
-    // }
-
     const intervalScheme = {
       width: `${width}%`,
       activeWidth: `${activeWidth}%`,

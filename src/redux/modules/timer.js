@@ -19,7 +19,7 @@ export function init(): (
   dispatch: () => any,
   getState: () => GlobalState
 ) => void {
-  return (dispatch: () => any, getState: () => GlobalState) => {
+  return (dispatch: (_: any) => any, getState: () => GlobalState) => {
     const state: GlobalState = getState()
     const restOfInterval = state.settings.intervalDurationsInMin.work * 60
 
@@ -28,7 +28,7 @@ export function init(): (
 }
 
 export function start(): any {
-  return (dispatch: () => any, getState: () => GlobalState) => {
+  return (dispatch: (_: any) => any, getState: () => GlobalState) => {
     if (intervalId !== 0) return
 
     intervalId = setInterval(() => {
@@ -50,7 +50,7 @@ export function pause(): any {
 }
 
 export function reset(): any {
-  return (dispatch: () => void, getState: () => GlobalState) => {
+  return (dispatch: (_: any) => void, getState: () => GlobalState) => {
     const state = getState()
     const { timer, settings } = state
 
@@ -103,7 +103,7 @@ function decrement(): { type: ActionType } {
   }
 }
 
-function goToNextInterval(dispatch: () => void, state: GlobalState) {
+function goToNextInterval(dispatch: (_: any) => void, state: GlobalState) {
   const { timer, settings } = state
 
   const nextInterval = getNextInterval(
