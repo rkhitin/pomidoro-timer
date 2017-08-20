@@ -2,6 +2,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import { init } from '../redux/modules/timer'
 import {
   setBigBreakDuration,
   setSmallBreakDuration,
@@ -17,6 +18,7 @@ class SettingsContainer extends React.Component {
     const actionCreator = this.props[`set${field}`]
 
     actionCreator(value)
+    this.props.init()
   };
 
   render() {
@@ -52,6 +54,7 @@ function mapDispatchToProps(dispatch) {
     setPomidoroInRound: value => dispatch(setPomidoroInRound(value)),
     setTargetNumberOfPomidoro: value =>
       dispatch(setTargetNumberOfPomidoro(value)),
+    init: () => dispatch(init()),
   }
 }
 

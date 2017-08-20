@@ -21,7 +21,8 @@ export function init(): (
 ) => void {
   return (dispatch: (_: any) => any, getState: () => GlobalState) => {
     const state: GlobalState = getState()
-    const restOfInterval = state.settings.intervalDurationsInMin.work * 60
+    const restOfInterval =
+      state.settings.intervalDurationsInMin[state.timer.currentInterval] * 60
 
     dispatch(setRestOfInterval(restOfInterval))
   }
