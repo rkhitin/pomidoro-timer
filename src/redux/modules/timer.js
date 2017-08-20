@@ -126,16 +126,16 @@ function goToNextInterval(dispatch: (_: any) => void, state: GlobalState) {
 
 // Reducer
 
-const initialState: Timer = {
+const initialState: TimerState = {
   currentInterval: intervals.work,
   totalSpentTimeInMin: 0,
   restOfIntervalInSec: 0,
 }
 
 export default function reducer(
-  state: Timer = initialState,
+  state: TimerState = initialState,
   action: Object
-): Timer {
+): TimerState {
   switch (action.type) {
     case actionTypes.DECREMENT:
       return Object.assign({}, state, {

@@ -22,3 +22,6 @@ declare module 'react-helmet' {
   declare var exports: any
 }
 
+declare module 'shortid' {
+  declare var exports: any
+}

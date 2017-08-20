@@ -4,7 +4,7 @@ import intervals from '../constants/intervals'
 export default function getNextInterval(
   currentInterval: Interval,
   totalSpentTimeInMin: number,
-  settings: Settings
+  settings: SettingsState
 ): Interval {
   function getNextRoundCount(
     currentRoundCount: number,

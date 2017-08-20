@@ -9,7 +9,7 @@ import {
   setTargetNumberOfPomidoro,
   setWorkDuration,
 } from '../redux/modules/settings'
-import SettingsPage from '../pages/Settings'
+import Settings from '../pages/Settings'
 
 class SettingsContainer extends React.Component {
   set = (field: string, rawValue: string | number) => {
@@ -20,7 +20,7 @@ class SettingsContainer extends React.Component {
   };
 
   render() {
-    return <SettingsPage settings={this.props.settings} set={this.set} />
+    return <Settings settings={this.props.settings} set={this.set} />
   }
 
   _parseInput(value: string | number): number {
@@ -29,7 +29,7 @@ class SettingsContainer extends React.Component {
     switch (true) {
       case valueInt > 60:
         return 60
-      case valueInt < 0:
+      case valueInt <= 0:
       case isNaN(valueInt):
         return 1
       default:

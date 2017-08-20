@@ -1,6 +1,14 @@
 declare type Interval = 'work' | 'smallBreak' | 'bigBreak'
 
-declare type Settings = {
+declare type ToDo = {
+  id: string,
+  text: string,
+  isCompleted: boolean,
+}
+
+declare type ToDoState = Array<ToDo>
+
+declare type SettingsState = {
   intervalDurationsInMin: {
     work: number,
     smallBreak: number,
@@ -10,15 +18,15 @@ declare type Settings = {
   targetNumberOfPomidoro: number,
 }
 
-declare type Timer = {
+declare type TimerState = {
   currentInterval: Interval,
   totalSpentTimeInMin: number,
   restOfIntervalInSec: number,
 }
 
 declare type GlobalState = {
-  settings: Settings,
-  timer: Timer,
+  settings: SettingsState,
+  timer: TimerState,
 }
 
 declare type IntervalScheme = {

@@ -6,7 +6,7 @@ import { calculateTargetTimeInMin } from './common'
 export default function(
   restOfIntervalInSec: number,
   totalSpentTimeInMin: number,
-  settings: Settings
+  settings: SettingsState
 ): Array<IntervalScheme> {
   const targetTimeInMin = calculateTargetTimeInMin(settings)
 

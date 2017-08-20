@@ -52,7 +52,7 @@ export function setTargetNumberOfPomidoro(value: number): Action {
 
 // Reducer
 
-const initialState: Settings = {
+const initialState: SettingsState = {
   intervalDurationsInMin: {
     work: 25,
     smallBreak: 5,
@@ -63,9 +63,9 @@ const initialState: Settings = {
 }
 
 export default function reducer(
-  state: Settings = initialState,
+  state: SettingsState = initialState,
   action: Action
-): Settings {
+): SettingsState {
   switch (action.type) {
     case actionTypes.SET_WORK_DURATION:
       return Object.assign({}, state, {

@@ -2,11 +2,13 @@
 
 import React from 'react'
 
-const SettingsPage = ({
+const selectAll = event => event.target.select()
+
+const Settings = ({
   settings,
   set,
 }: {
-  settings: Settings,
+  settings: SettingsState,
   set: (field: string, value: string | number) => void,
 }) =>
   <div>
@@ -21,6 +23,7 @@ const SettingsPage = ({
         type="text"
         value={settings.intervalDurationsInMin.work}
         onChange={event => set('WorkDuration', event.target.value)}
+        onFocus={selectAll}
       />
       <button
         onClick={() =>
@@ -43,6 +46,7 @@ const SettingsPage = ({
         type="text"
         value={settings.intervalDurationsInMin.smallBreak}
         onChange={event => set('SmallBreakDuration', event.target.value)}
+        onFocus={selectAll}
       />
       <button
         onClick={() =>
@@ -68,6 +72,7 @@ const SettingsPage = ({
         type="text"
         value={settings.intervalDurationsInMin.bigBreak}
         onChange={event => set('BigBreakDuration', event.target.value)}
+        onFocus={selectAll}
       />
       <button
         onClick={() =>
@@ -89,6 +94,7 @@ const SettingsPage = ({
         type="text"
         value={settings.pomidoroInRound}
         onChange={event => set('PomidoroInRound', event.target.value)}
+        onFocus={selectAll}
       />
       <button
         onClick={() => set('PomidoroInRound', settings.pomidoroInRound + 1)}>
@@ -107,6 +113,7 @@ const SettingsPage = ({
         type="text"
         value={settings.targetNumberOfPomidoro}
         onChange={event => set('TargetNumberOfPomidoro', event.target.value)}
+        onFocus={selectAll}
       />
       <button
         onClick={() =>
@@ -116,6 +123,4 @@ const SettingsPage = ({
     </div>
   </div>
 
-SettingsPage.propTypes = {}
-
-export default SettingsPage
+export default Settings

@@ -16,7 +16,8 @@
     "react-router-dom": "^4.1.1",
     "react-scripts": "1.0.11",
     "redux": "^3.7.1",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "shortid": "^2.2.8"
   },
   "scripts": {
     "start": "react-scripts start",

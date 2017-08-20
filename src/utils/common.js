@@ -1,6 +1,6 @@
 // @flow
 
-export function calculateTargetTimeInMin(settings: Settings): number {
+export function calculateTargetTimeInMin(settings: SettingsState): number {
   let bigBreakNumbers = Math.floor(
     settings.targetNumberOfPomidoro / settings.pomidoroInRound
   )

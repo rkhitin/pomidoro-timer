@@ -9,8 +9,8 @@ const ProgressBarContainer = ({
   timer,
   settings,
 }: {
-  timer: Timer,
-  settings: Settings,
+  timer: TimerState,
+  settings: SettingsState,
 }) => {
   const progressBarScheme: Array<IntervalScheme> = progressBarSchemeGenerator(
     timer.restOfIntervalInSec,
