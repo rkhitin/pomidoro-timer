@@ -1,62 +1,113 @@
 // @flow
 import shortid from 'shortid'
 
-const actionTypes = {
-  ADD: 'ADD',
-  REMOVE: 'REMOVE',
-  TOGGLE_COMPLETENESS: 'TOGGLE_COMPLETENESS',
+type AddAction = { type: 'ADD', todo: Todo }
+type RemoveAction = { type: 'REMOVE', todoId: string }
+type ToggleCompletenessAction = {
+  type: 'TOGGLE_COMPLETENESS',
+  todoId: string,
 }
+type ReorderAction = { type: 'REORDER', source: number, destination: number }
 
-type ActionType = $Keys<typeof actionTypes>
-type Action = {
-  type: ActionType,
-  toDo?: ToDo,
-  toDoId?: string,
-}
+type Action =
+  | RemoveAction
+  | AddAction
+  | ToggleCompletenessAction
+  | ReorderAction
 
-// Action Creators
-
-export function add(text: string): Action {
-  const toDo = {
+export function add(text: string): AddAction {
+  const todo = {
     id: shortid.generate(),
     text,
     isCompleted: false,
   }
 
   return {
-    type: actionTypes.ADD,
-    toDo,
+    type: 'ADD',
+    todo,
   }
 }
 
-export function remove(toDoId: string): Action {
+export function remove(todoId: string): RemoveAction {
   return {
-    type: actionTypes.ADD,
-    toDoId,
+    type: 'REMOVE',
+    todoId: todoId,
   }
 }
 
-export function toggleCompleteness(toDoId: string): Action {
+export function reorder(source: number, destination: number): ReorderAction {
   return {
-    type: actionTypes.TOGGLE_COMPLETENESS,
-    toDoId,
+    type: 'REORDER',
+    source,
+    destination,
+  }
+}
+
+export function toggleCompleteness(todoId: string): ToggleCompletenessAction {
+  return {
+    type: 'TOGGLE_COMPLETENESS',
+    todoId,
   }
 }
 
 // Reducer
 
-const initialState: ToDoState = []
+const initialState: ToDoState = [
+  {
+    id: 'asdfasdf',
+    text: '1 Some important totd',
+    isCompleted: false,
+  },
+  {
+    id: '111',
+    text: '2 Some important totd',
+    isCompleted: false,
+  },
+  {
+    id: '1311',
+    text: '3 Some important totd',
+    isCompleted: false,
+  },
+  {
+    id: '11991',
+    text: '4 Some important totd',
+    isCompleted: false,
+  },
+  {
+    id: '311991',
+    text: '5 Some important totd',
+    isCompleted: true,
+  },
+]
 
 export default function reducer(
   state: ToDoState = initialState,
   action: Action
 ): ToDoState {
   switch (action.type) {
-    case actionTypes.ADD:
-      const toDo = action.toDo || { text: 'Error', id: 'id', isComleted: false }
-      return state.concat([toDo])
+    case 'ADD':
+      return [action.todo].concat(state)
+
+    case 'REMOVE':
+      return state.filter(existToDo => existToDo.id !== action.todoId)
+
+    case 'REORDER':
+      let result = Array.from(state)
+      const [removed] = result.splice(action.source, 1)
+      result.splice(action.destination, 0, removed)
+      return result
+
+    case 'TOGGLE_COMPLETENESS':
+      return state.map(existToDo => {
+        if (existToDo.id !== action.todoId) return existToDo
+
+        return Object.assign({}, existToDo, {
+          isCompleted: !existToDo.isCompleted,
+        })
+      })
 
     default:
+      ;(action: empty)
       return state
   }
 }

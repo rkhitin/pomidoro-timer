@@ -3,6 +3,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import glamorous from 'glamorous'
 import { css } from 'glamor'
+import colors from '../constants/colors'
 
 const Navigation = glamorous.div({
   display: 'flex',
@@ -10,20 +11,23 @@ const Navigation = glamorous.div({
   justifyContent: 'space-between',
 })
 
-const MyNavLink = glamorous(NavLink)({
+const myNavLinkStyle = {
   color: '#333',
   textDecoration: 'none',
   display: 'flex',
   alignItems: 'center',
 
   ':hover': {
-    color: '#ed5e42',
+    color: colors.red,
   },
-})
+}
+
+const MyNavLink = glamorous(NavLink)(myNavLinkStyle)
+const MyLink = glamorous.a(myNavLinkStyle)
 
 const MyNavLinkActiveClass = css({
   'a&': {
-    color: '#ed5e42',
+    color: colors.red,
   },
 }).toString()
 
@@ -40,7 +44,7 @@ const IconText = glamorous.span({
   },
 })
 
-const Nav = () =>
+const Nav = () => (
   <Navigation>
     <MyNavLink activeClassName={MyNavLinkActiveClass} exact={true} to="/">
       <Icon className="fa fa-clock-o" /> <IconText>Таймер</IconText>
@@ -51,12 +55,13 @@ const Nav = () =>
     <MyNavLink activeClassName={MyNavLinkActiveClass} to="/settings">
       <Icon className="fa fa-cog" /> <IconText>Настройки</IconText>
     </MyNavLink>
-    <MyNavLink activeClassName={MyNavLinkActiveClass} to="/faq">
+    <MyLink
+      href="https://lifehacker.ru/2015/05/28/all-about-pomodoro/"
+      target="_blank"
+    >
       <Icon className="fa fa-question-circle-o" /> <IconText>F.A.Q</IconText>
-    </MyNavLink>
-    <MyNavLink activeClassName={MyNavLinkActiveClass} to="/history">
-      <Icon className="fa fa-history" /> <IconText>История</IconText>
-    </MyNavLink>
+    </MyLink>
   </Navigation>
+)
 
 export default Nav

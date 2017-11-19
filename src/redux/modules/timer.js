@@ -36,7 +36,7 @@ export function start(): any {
       const state = getState()
       const { restOfIntervalInSec } = state.timer
 
-      if (restOfIntervalInSec <= 0) return goToNextInterval(dispatch, state)
+      if (restOfIntervalInSec <= 1) return goToNextInterval(dispatch, state)
 
       dispatch(decrement())
     }, 1000)

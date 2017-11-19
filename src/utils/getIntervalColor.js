@@ -1,5 +1,6 @@
 // @flow
 import intervals from '../constants/intervals'
+import colors from '../constants/colors'
 
 export default function getIntervalColor(
   type: Interval,
@@ -8,11 +9,11 @@ export default function getIntervalColor(
   if (isItBackground) {
     switch (type) {
       case intervals.work:
-        return '#b44'
+        return colors.red
       case intervals.smallBreak:
-        return '#4b4'
+        return colors.green
       case intervals.bigBreak:
-        return '#44b'
+        return colors.green
       default:
         return 'grey'
     }
@@ -20,12 +21,12 @@ export default function getIntervalColor(
 
   switch (type) {
     case intervals.work:
-      return '#f00'
+      return '#c7c7c7'
     case intervals.smallBreak:
-      return '#0f0'
+      return '#a2a2a2'
     case intervals.bigBreak:
-      return '#004'
+      return '#a2a2a2'
     default:
-      return 'black'
+      return 'grey'
   }
 }

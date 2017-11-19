@@ -1,20 +1,17 @@
 {
   "parser": "babel-eslint",
-  "plugins": [
-    "prettier",
-    "flowtype"
-  ],
+  "plugins": ["prettier", "flowtype"],
   "rules": {
-    "prettier/prettier": ["error", {
-      "semi": false,
-      "singleQuote": true,
-      "trailingComma": "es5",
-      "jsxBracketSameLine": true,
-      "parser": "flow"
-    }]
+    "prettier/prettier": [
+      "error",
+      {
+        "semi": false,
+        "singleQuote": true,
+        "trailingComma": "es5",
+        "jsxBracketSameLine": false,
+        "parser": "flow"
+      }
+    ]
   },
-  "extends": [
-    "prettier",
-    "plugin:flowtype/recommended"
-  ]
+  "extends": ["prettier", "plugin:flowtype/recommended"]
 }

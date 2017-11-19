@@ -1,29 +1,25 @@
 // @flow
 import React from 'react'
+import glamorous from 'glamorous'
 
-const Timer = ({
-  timer,
-  start,
-  pause,
-  next,
-  reset,
-}: {
-  timer: number,
-  start: () => mixed,
-  pause: () => mixed,
-  next: () => mixed,
-  reset: () => mixed,
-}) =>
-  <div>
-    <div>
-      {timer}
-    </div>
-    <div>
-      <button onClick={start}>start</button>
-      <button onClick={pause}>pause</button>
-      <button onClick={next}>next</button>
-      <button onClick={reset}>reset</button>
-    </div>
-  </div>
+import TimerCurrentTodo from '../components/TimerCurrentTodo'
+import Timer from '../components/Timer'
 
-export default Timer
+const CurrentTodoWrapper = glamorous.div({
+  width: '70%',
+  margin: '0 auto',
+})
+
+const TimerPage = props => {
+  return (
+    <div>
+      <Timer {...props} />
+
+      <CurrentTodoWrapper>
+        <TimerCurrentTodo {...props} />
+      </CurrentTodoWrapper>
+    </div>
+  )
+}
+
+export default TimerPage

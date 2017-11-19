@@ -4,19 +4,20 @@ import React from 'react'
 
 const selectAll = event => event.target.select()
 
-const Settings = ({
+const SettingsPage = ({
   settings,
   set,
 }: {
   settings: SettingsState,
   set: (field: string, value: string | number) => void,
-}) =>
+}) => (
   <div>
     <div>
       Время работы
       <button
         onClick={() =>
-          set('WorkDuration', settings.intervalDurationsInMin.work - 1)}>
+          set('WorkDuration', settings.intervalDurationsInMin.work - 1)}
+      >
         <i className="fa fa-minus" />
       </button>
       <input
@@ -27,7 +28,8 @@ const Settings = ({
       />
       <button
         onClick={() =>
-          set('WorkDuration', settings.intervalDurationsInMin.work + 1)}>
+          set('WorkDuration', settings.intervalDurationsInMin.work + 1)}
+      >
         <i className="fa fa-plus" />
       </button>
     </div>
@@ -39,7 +41,8 @@ const Settings = ({
           set(
             'SmallBreakDuration',
             settings.intervalDurationsInMin.smallBreak - 1
-          )}>
+          )}
+      >
         <i className="fa fa-minus" />
       </button>
       <input
@@ -53,7 +56,8 @@ const Settings = ({
           set(
             'SmallBreakDuration',
             settings.intervalDurationsInMin.smallBreak + 1
-          )}>
+          )}
+      >
         <i className="fa fa-plus" />
       </button>
     </div>
@@ -62,10 +66,8 @@ const Settings = ({
       Время большого отдыха
       <button
         onClick={() =>
-          set(
-            'BigBreakDuration',
-            settings.intervalDurationsInMin.bigBreak - 1
-          )}>
+          set('BigBreakDuration', settings.intervalDurationsInMin.bigBreak - 1)}
+      >
         <i className="fa fa-minus" />
       </button>
       <input
@@ -76,10 +78,8 @@ const Settings = ({
       />
       <button
         onClick={() =>
-          set(
-            'BigBreakDuration',
-            settings.intervalDurationsInMin.bigBreak + 1
-          )}>
+          set('BigBreakDuration', settings.intervalDurationsInMin.bigBreak + 1)}
+      >
         <i className="fa fa-plus" />
       </button>
     </div>
@@ -87,7 +87,8 @@ const Settings = ({
     <div>
       Количество помидоров в раунде
       <button
-        onClick={() => set('PomidoroInRound', settings.pomidoroInRound - 1)}>
+        onClick={() => set('PomidoroInRound', settings.pomidoroInRound - 1)}
+      >
         <i className="fa fa-minus" />
       </button>
       <input
@@ -97,7 +98,8 @@ const Settings = ({
         onFocus={selectAll}
       />
       <button
-        onClick={() => set('PomidoroInRound', settings.pomidoroInRound + 1)}>
+        onClick={() => set('PomidoroInRound', settings.pomidoroInRound + 1)}
+      >
         <i className="fa fa-plus" />
       </button>
     </div>
@@ -106,7 +108,8 @@ const Settings = ({
       Цель на день
       <button
         onClick={() =>
-          set('TargetNumberOfPomidoro', settings.targetNumberOfPomidoro - 1)}>
+          set('TargetNumberOfPomidoro', settings.targetNumberOfPomidoro - 1)}
+      >
         <i className="fa fa-minus" />
       </button>
       <input
@@ -117,10 +120,12 @@ const Settings = ({
       />
       <button
         onClick={() =>
-          set('TargetNumberOfPomidoro', settings.targetNumberOfPomidoro + 1)}>
+          set('TargetNumberOfPomidoro', settings.targetNumberOfPomidoro + 1)}
+      >
         <i className="fa fa-plus" />
       </button>
     </div>
   </div>
+)
 
-export default Settings
+export default SettingsPage
