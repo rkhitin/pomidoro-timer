@@ -5,6 +5,7 @@ const actionTypes = {
   SET_BIG_BREAK_DURATION: 'SET_BIG_BREAK_DURATION',
   SET_POMIDORO_IN_ROUND: 'SET_POMIDORO_IN_ROUND',
   SET_TARGET_NUMBER_OF_POMIDORO: 'SET_TARGET_NUMBER_OF_POMIDORO',
+  TOGGLE_SHOW_NOTIFICATION: 'TOGGLE_SHOW_NOTIFICATION',
 }
 
 type ActionType = $Keys<typeof actionTypes>
@@ -50,6 +51,12 @@ export function setTargetNumberOfPomidoro(value: number): Action {
   }
 }
 
+export function toggleShowNotification(): Action {
+  return {
+    type: actionTypes.TOGGLE_SHOW_NOTIFICATION,
+  }
+}
+
 // Reducer
 
 const initialState: SettingsState = {
@@ -60,6 +67,7 @@ const initialState: SettingsState = {
   },
   pomidoroInRound: 4,
   targetNumberOfPomidoro: 10,
+  showNotification: true,
 }
 
 export default function reducer(
@@ -108,6 +116,11 @@ export default function reducer(
     case actionTypes.SET_TARGET_NUMBER_OF_POMIDORO:
       return Object.assign({}, state, {
         targetNumberOfPomidoro: action.value,
+      })
+
+    case actionTypes.TOGGLE_SHOW_NOTIFICATION:
+      return Object.assign({}, state, {
+        showNotification: !state.showNotification,
       })
 
     default:

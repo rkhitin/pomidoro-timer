@@ -1,6 +1,5 @@
 // @flow
 import React from 'react'
-import glamorous from 'glamorous'
 import colors from '../constants/colors'
 
 class Circle extends React.Component {

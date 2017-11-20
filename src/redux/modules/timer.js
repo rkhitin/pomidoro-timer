@@ -116,7 +116,7 @@ function goToNextInterval(dispatch: (_: any) => void, state: GlobalState) {
     state.timer.totalSpentTimeInMin +
     settings.intervalDurationsInMin[timer.currentInterval]
 
-  notify(nextInterval)
+  if (settings.showNotification) notify(nextInterval)
 
   dispatch(setTotalSpentTime(nextTotalSpentTimeInMin))
   dispatch(

@@ -9,6 +9,7 @@ import {
   setPomidoroInRound,
   setTargetNumberOfPomidoro,
   setWorkDuration,
+  toggleShowNotification,
 } from '../redux/modules/settings'
 import Settings from '../pages/Settings'
 
@@ -22,7 +23,13 @@ class SettingsContainer extends React.Component {
   };
 
   render() {
-    return <Settings settings={this.props.settings} set={this.set} />
+    return (
+      <Settings
+        settings={this.props.settings}
+        set={this.set}
+        toggleShowNotification={this.props.toggleShowNotification}
+      />
+    )
   }
 
   _parseInput(value: string | number): number {
@@ -54,6 +61,7 @@ function mapDispatchToProps(dispatch) {
     setPomidoroInRound: value => dispatch(setPomidoroInRound(value)),
     setTargetNumberOfPomidoro: value =>
       dispatch(setTargetNumberOfPomidoro(value)),
+    toggleShowNotification: () => dispatch(toggleShowNotification()),
     init: () => dispatch(init()),
   }
 }

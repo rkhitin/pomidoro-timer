@@ -3,7 +3,6 @@ import React from 'react'
 import glamorous from 'glamorous'
 import Circle from './Circle'
 import TimerControls from './TimerControls'
-import timeConverter from '../utils/timeConverter'
 
 const Watch = glamorous.div({
   width: '50%',
@@ -26,6 +25,13 @@ const TimeCounter = glamorous.div({
 
 const CircleContent = glamorous.div({
   position: 'absolute',
+  left: 0,
+  right: 0,
+  top: 0,
+  bottom: 0,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
 })
 
 const Timer = ({
@@ -41,8 +47,15 @@ const Timer = ({
     <Watch>
       <Circle progressBarWidth={progressBarWidth} isItWork={isItWork} />
       <CircleContent>
-        <TimeCounter>{formatedTimeCounter}</TimeCounter>
-        <TimerControls start={start} pause={pause} next={next} reset={reset} />
+        <div>
+          <TimeCounter>{formatedTimeCounter}</TimeCounter>
+          <TimerControls
+            start={start}
+            pause={pause}
+            next={next}
+            reset={reset}
+          />
+        </div>
       </CircleContent>
     </Watch>
   </div>

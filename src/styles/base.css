@@ -68,6 +68,7 @@ label:hover:before {
   box-shadow: none;
   border-color: #bbb !important;
   background-color: #ddd;
+  cursor: default;
 }
 [type='checkbox']:disabled:checked + label:after {
   color: #999;

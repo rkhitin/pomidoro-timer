@@ -22,8 +22,7 @@ export function notify(nextInterval: Interval): void {
   if (Notification.permission !== 'granted')
     return alert('Нужно разрешить уведомления в браузере!')
 
-  // TODO enable notification
-  // new Notification(getMessage(nextInterval))
+  new Notification(getMessage(nextInterval))
 }
 
 function getMessage(nextInterval: Interval): string {

@@ -52,33 +52,7 @@ export function toggleCompleteness(todoId: string): ToggleCompletenessAction {
 
 // Reducer
 
-const initialState: ToDoState = [
-  {
-    id: 'asdfasdf',
-    text: '1 Some important totd',
-    isCompleted: false,
-  },
-  {
-    id: '111',
-    text: '2 Some important totd',
-    isCompleted: false,
-  },
-  {
-    id: '1311',
-    text: '3 Some important totd',
-    isCompleted: false,
-  },
-  {
-    id: '11991',
-    text: '4 Some important totd',
-    isCompleted: false,
-  },
-  {
-    id: '311991',
-    text: '5 Some important totd',
-    isCompleted: true,
-  },
-]
+const initialState: ToDoState = []
 
 export default function reducer(
   state: ToDoState = initialState,
@@ -107,7 +81,6 @@ export default function reducer(
       })
 
     default:
-      ;(action: empty)
       return state
   }
 }

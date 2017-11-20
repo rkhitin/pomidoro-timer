@@ -11,7 +11,7 @@ const Content = glamorous.div({
 })
 
 const Button = glamorous.button({
-  backgroundColor: 'none',
+  backgroundColor: 'white',
   color: colors.red,
   border: `1px solid ${colors.red}`,
   width: '40px',

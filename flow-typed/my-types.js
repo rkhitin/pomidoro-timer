@@ -16,6 +16,7 @@ declare type SettingsState = {
   },
   +pomidoroInRound: number,
   +targetNumberOfPomidoro: number,
+  +showNotification: boolean,
 }
 
 declare type TimerState = {

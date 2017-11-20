@@ -4,7 +4,7 @@ import glamorous from 'glamorous'
 import colors from '../constants/colors'
 
 const Button = glamorous.button({
-  backgroundColor: 'none',
+  backgroundColor: 'white',
   color: colors.red,
   border: `1px solid ${colors.red}`,
   padding: '15px',
@@ -55,7 +55,7 @@ class TimerControls extends React.Component {
   }
 
   render() {
-    const { next, start, pause, reset } = this.props
+    const { next, reset } = this.props
     const centerButtonProps = this.state.isTicking
       ? { class: 'pause', handler: this.pause }
       : { class: 'play', handler: this.start }

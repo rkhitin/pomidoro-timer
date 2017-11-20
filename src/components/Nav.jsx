@@ -50,7 +50,7 @@ const Nav = () => (
       <Icon className="fa fa-clock-o" /> <IconText>Таймер</IconText>
     </MyNavLink>
     <MyNavLink activeClassName={MyNavLinkActiveClass} to="/todo">
-      <Icon className="fa fa-th-list" /> <IconText>ToDo</IconText>
+      <Icon className="fa fa-th-list" /> <IconText>Задачи</IconText>
     </MyNavLink>
     <MyNavLink activeClassName={MyNavLinkActiveClass} to="/settings">
       <Icon className="fa fa-cog" /> <IconText>Настройки</IconText>
@@ -59,7 +59,7 @@ const Nav = () => (
       href="https://lifehacker.ru/2015/05/28/all-about-pomodoro/"
       target="_blank"
     >
-      <Icon className="fa fa-question-circle-o" /> <IconText>F.A.Q</IconText>
+      <Icon className="fa fa-question-circle-o" /> <IconText>Что это?</IconText>
     </MyLink>
   </Navigation>
 )
