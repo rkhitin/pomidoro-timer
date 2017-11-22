@@ -13,7 +13,7 @@ const getItemStyle = (draggableStyle, isDragging) => ({
   alignItems: 'center',
 
   // change background colour if dragging
-  background: isDragging ? colors.red : 'white',
+  background: isDragging ? '#ffbbaf' : 'white',
 
   // styles we need to apply on draggables
   ...draggableStyle,

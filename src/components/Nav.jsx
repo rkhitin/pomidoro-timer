@@ -55,12 +55,9 @@ const Nav = () => (
     <MyNavLink activeClassName={MyNavLinkActiveClass} to="/settings">
       <Icon className="fa fa-cog" /> <IconText>Настройки</IconText>
     </MyNavLink>
-    <MyLink
-      href="https://lifehacker.ru/2015/05/28/all-about-pomodoro/"
-      target="_blank"
-    >
+    <MyNavLink activeClassName={MyNavLinkActiveClass} to="/faq">
       <Icon className="fa fa-question-circle-o" /> <IconText>Что это?</IconText>
-    </MyLink>
+    </MyNavLink>
   </Navigation>
 )
 

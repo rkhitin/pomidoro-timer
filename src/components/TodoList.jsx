@@ -5,7 +5,7 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import TodoComponent from './Todo'
 
 const getListStyle = isDraggingOver => ({
-  background: isDraggingOver ? 'lightblue' : 'white',
+  background: isDraggingOver ? '#7dc1a5' : 'white',
 })
 
 const TodoList = ({
@@ -21,7 +21,7 @@ const TodoList = ({
 }) => (
   <DragDropContext
     onDragEnd={({ source, destination }) =>
-      reorder(source.index, destination.index)}
+      source && destination && reorder(source.index, destination.index)}
   >
     <Droppable droppableId="droppable">
       {(provided, snapshot) => (

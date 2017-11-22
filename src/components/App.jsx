@@ -15,24 +15,35 @@ import 'normalize.css/normalize.css'
 import '../styles/base.css'
 
 const Title = glamorous.h1({
-  fontSize: '20px',
+  fontSize: '25px',
   fontWeight: '400',
   textAlign: 'center',
-  margin: '0 0 10px',
+  margin: '0 0 20px',
 })
 
 const App = glamorous.div({
   backgroundColor: 'white',
   borderRadius: '5px',
-  padding: '20px 0',
+  padding: '0',
   display: 'flex',
   flexDirection: 'column',
+  margin: '0 auto',
+  border: '1px solid #ccc',
+  boxShadow: '0 0 10px rgba(0,0,0,0.5)',
 
+  '@media(min-width: 500px)': {
+    padding: '20px 0',
+    width: '500px',
+  },
   '@media(min-width: 700px)': {
     width: '700px',
   },
-  '@media(min-height: 600px)': {
-    height: '600px',
+
+  '@media(min-height: 440px)': {
+    minHeight: '400px',
+  },
+  '@media(min-height: 640px)': {
+    minHeight: '600px',
   },
 })
 
@@ -48,7 +59,7 @@ const AppWithRouter = ({ timer }: { timer: number }) => (
           <title>{timer}</title>
         </Helmet>
 
-        <Title>Таймер «Помидор»</Title>
+        <Title>Помидорко-таймер</Title>
 
         <ProgressBar />
 

@@ -2,10 +2,39 @@ html {
   font-family: 'Roboto', sans-serif;
   color: #333;
   min-height: 100%;
-  background-color: #b9ffeb;
+  background: none;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: 15px;
+}
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+@media (min-width: 500px) {
+  html {
+    /* background-color: #b9ffeb; */
+    padding-top: 0px;
+    align-items: center;
+  }
+  html:after {
+    content: '';
+    background-image: url('/tomato.jpg');
+    background-repeat: repeat;
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+  }
+  body,
+  #root {
+    min-height: 0;
+  }
 }
 
 /* Base for label styling */

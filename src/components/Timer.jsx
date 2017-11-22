@@ -5,22 +5,33 @@ import Circle from './Circle'
 import TimerControls from './TimerControls'
 
 const Watch = glamorous.div({
-  width: '50%',
+  width: '90%',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  margin: '0 auto',
+  margin: '10px auto 0',
   position: 'relative',
 
   '&>canvas': {
     width: '100%',
   },
+
+  '@media(min-width: 500px)': {
+    width: '70%',
+  },
+  '@media(min-width: 700px)': {
+    width: '50%',
+  },
 })
 
 const TimeCounter = glamorous.div({
-  fontSize: '50px',
+  fontSize: '40px',
   textAlign: 'center',
   marginBottom: '10px',
+
+  '@media(min-width: 400px)': {
+    fontSize: '50px',
+  },
 })
 
 const CircleContent = glamorous.div({

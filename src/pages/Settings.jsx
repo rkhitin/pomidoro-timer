@@ -6,9 +6,15 @@ import colors from '../constants/colors'
 const selectAll = event => event.target.select()
 
 const Content = glamorous.div({
-  width: '70%',
-  margin: '0 auto',
-  padding: '15px 0',
+  width: '100%',
+  margin: '20px auto 0',
+  padding: '15px',
+  boxSizing: 'border-box',
+
+  '@media(min-width: 500px)': {
+    padding: '15px 0',
+    width: '70%',
+  },
 })
 
 const Row = glamorous.div({
@@ -26,7 +32,7 @@ const Label = glamorous.div({})
 const Inputs = glamorous.div({
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center',
+  justifyContent: 'flex-end',
   width: '40%',
 
   '&>input': {
@@ -49,6 +55,8 @@ const Button = glamorous.span({
 
 const CheckBoxWrapper = glamorous.div({
   height: '24px',
+  width: '60px',
+
   '& label': {
     paddingLeft: '24px !important',
   },

@@ -5,6 +5,10 @@ import glamorous from 'glamorous'
 import TimerCurrentTodo from '../components/TimerCurrentTodo'
 import Timer from '../components/Timer'
 
+const Content = glamorous.div({
+  marginBottom: '45px',
+})
+
 const CurrentTodoWrapper = glamorous.div({
   width: '70%',
   margin: '0 auto',
@@ -12,13 +16,13 @@ const CurrentTodoWrapper = glamorous.div({
 
 const TimerPage = props => {
   return (
-    <div>
+    <Content>
       <Timer {...props} />
 
       <CurrentTodoWrapper>
         <TimerCurrentTodo {...props} />
       </CurrentTodoWrapper>
-    </div>
+    </Content>
   )
 }
 
