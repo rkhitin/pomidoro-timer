@@ -28,12 +28,12 @@ const App = glamorous.div({
   display: 'flex',
   flexDirection: 'column',
   margin: '0 auto',
-  border: '1px solid #ccc',
-  boxShadow: '0 0 10px rgba(0,0,0,0.5)',
 
   '@media(min-width: 500px)': {
     padding: '20px 0',
     width: '500px',
+    border: '1px solid #ccc',
+    boxShadow: '0 0 10px rgba(0,0,0,0.5)',
   },
   '@media(min-width: 700px)': {
     width: '700px',
