@@ -1,5 +1,5 @@
 // @flow
-import shortid from 'shortid'
+import nanoid from 'nanoid'
 
 type AddAction = { type: 'ADD', todo: Todo }
 type RemoveAction = { type: 'REMOVE', todoId: string }
@@ -17,7 +17,7 @@ type Action =
 
 export function add(text: string): AddAction {
   const todo = {
-    id: shortid.generate(),
+    id: nanoid(),
     text,
     isCompleted: false,
   }
