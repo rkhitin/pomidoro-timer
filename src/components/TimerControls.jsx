@@ -1,9 +1,10 @@
 // @flow
 import React from 'react'
-import glamorous from 'glamorous'
+import styled from '@emotion/styled'
+
 import colors from '../constants/colors'
 
-const Button = glamorous.button({
+const Button = styled.button({
   backgroundColor: 'white',
   color: colors.red,
   border: `1px solid ${colors.red}`,
@@ -30,7 +31,7 @@ const Button = glamorous.button({
   },
 })
 
-const CenterButton = glamorous(Button)({
+const CenterButton = styled(Button)({
   padding: '25px',
   fontSize: '25px',
 

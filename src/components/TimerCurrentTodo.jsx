@@ -1,11 +1,12 @@
 // @flow
 import React from 'react'
-import glamorous from 'glamorous'
+import styled from '@emotion/styled'
 import { NavLink } from 'react-router-dom'
+
 import TodoComponent from '../components/Todo'
 import colors from '../constants/colors'
 
-const EmptyTodo = glamorous.div({
+const EmptyTodo = styled.div({
   color: '#999',
   textAlign: 'center',
   borderBottom: '1px solid #eee',

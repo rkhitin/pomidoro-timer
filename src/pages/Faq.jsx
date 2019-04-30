@@ -1,22 +1,23 @@
 import React from 'react'
-import glamorous from 'glamorous'
+import styled from '@emotion/styled'
+
 import colors from '../constants/colors'
 
-const Content = glamorous.div({
+const Content = styled.div({
   padding: '15px 15px',
 })
 
-const Title = glamorous.h2({
+const Title = styled.h2({
   fontSize: 20,
 })
 
-const Info = glamorous.div({
+const Info = styled.div({
   fontSize: 14,
   fontStyle: 'italic',
   marginTop: '20px',
 })
 
-const Link = glamorous.a({
+const Link = styled.a({
   color: colors.red,
 })
 

@@ -1,11 +1,10 @@
 // @flow
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import glamorous from 'glamorous'
-import { css } from 'glamor'
+import styled from '@emotion/styled'
 import colors from '../constants/colors'
 
-const Navigation = glamorous.div({
+const Navigation = styled.div({
   display: 'flex',
   padding: '0 30px',
   justifyContent: 'space-between',
@@ -22,21 +21,14 @@ const myNavLinkStyle = {
   },
 }
 
-const MyNavLink = glamorous(NavLink)(myNavLinkStyle)
-const MyLink = glamorous.a(myNavLinkStyle)
+const MyNavLink = styled(NavLink)(myNavLinkStyle)
 
-const MyNavLinkActiveClass = css({
-  'a&': {
-    color: colors.red,
-  },
-}).toString()
-
-const Icon = glamorous.span({
+const Icon = styled.span({
   fontSize: '30px',
   marginRight: '10px',
 })
 
-const IconText = glamorous.span({
+const IconText = styled.span({
   display: 'none',
 
   '@media(min-width: 700px)': {
@@ -44,18 +36,20 @@ const IconText = glamorous.span({
   },
 })
 
+const activeLinkStyle = { color: colors.red }
+
 const Nav = () => (
   <Navigation>
-    <MyNavLink activeClassName={MyNavLinkActiveClass} exact={true} to="/">
+    <MyNavLink activeStyle={activeLinkStyle} exact={true} to="/">
       <Icon className="fa fa-clock-o" /> <IconText>Таймер</IconText>
     </MyNavLink>
-    <MyNavLink activeClassName={MyNavLinkActiveClass} to="/todo">
+    <MyNavLink activeStyle={activeLinkStyle} to="/todo">
       <Icon className="fa fa-th-list" /> <IconText>Задачи</IconText>
     </MyNavLink>
-    <MyNavLink activeClassName={MyNavLinkActiveClass} to="/settings">
+    <MyNavLink activeStyle={activeLinkStyle} to="/settings">
       <Icon className="fa fa-cog" /> <IconText>Настройки</IconText>
     </MyNavLink>
-    <MyNavLink activeClassName={MyNavLinkActiveClass} to="/faq">
+    <MyNavLink activeStyle={activeLinkStyle} to="/faq">
       <Icon className="fa fa-question-circle-o" /> <IconText>Что это?</IconText>
     </MyNavLink>
   </Navigation>

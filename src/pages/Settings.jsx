@@ -1,11 +1,12 @@
 // @flow
 import React from 'react'
-import glamorous from 'glamorous'
+import styled from '@emotion/styled'
+
 import colors from '../constants/colors'
 
 const selectAll = event => event.target.select()
 
-const Content = glamorous.div({
+const Content = styled.div({
   width: '100%',
   margin: '20px auto 0',
   padding: '15px',
@@ -17,7 +18,7 @@ const Content = glamorous.div({
   },
 })
 
-const Row = glamorous.div({
+const Row = styled.div({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
@@ -28,8 +29,9 @@ const Row = glamorous.div({
   },
 })
 
-const Label = glamorous.div({})
-const Inputs = glamorous.div({
+const Label = styled.div({})
+
+const Inputs = styled.div({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'flex-end',
@@ -44,7 +46,7 @@ const Inputs = glamorous.div({
     textAlign: 'center',
   },
 })
-const Button = glamorous.span({
+const Button = styled.span({
   color: colors.red,
   cursor: 'pointer',
   fontSize: '25px',
@@ -53,7 +55,7 @@ const Button = glamorous.span({
   },
 })
 
-const CheckBoxWrapper = glamorous.div({
+const CheckBoxWrapper = styled.div({
   height: '24px',
   width: '60px',
 

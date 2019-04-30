@@ -1,15 +1,15 @@
 // @flow
 import React from 'react'
-import glamorous from 'glamorous'
+import styled from '@emotion/styled'
 
 import TimerCurrentTodo from '../components/TimerCurrentTodo'
 import Timer from '../components/Timer'
 
-const Content = glamorous.div({
+const Content = styled.div({
   marginBottom: '45px',
 })
 
-const CurrentTodoWrapper = glamorous.div({
+const CurrentTodoWrapper = styled.div({
   width: '70%',
   margin: '0 auto',
 })

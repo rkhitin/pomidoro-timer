@@ -1,10 +1,11 @@
 // @flow
 import React from 'react'
-import glamorous from 'glamorous'
+import styled from '@emotion/styled'
+
 import TodoList from '../components/TodoList'
 import colors from '../constants/colors'
 
-const Content = glamorous.div({
+const Content = styled.div({
   width: '100%',
   margin: '20px auto 0',
   padding: '15px',
@@ -16,7 +17,7 @@ const Content = glamorous.div({
   },
 })
 
-const Button = glamorous.button({
+const Button = styled.button({
   backgroundColor: 'white',
   color: colors.red,
   border: `1px solid ${colors.red}`,
@@ -39,7 +40,7 @@ const Button = glamorous.button({
   },
 })
 
-const Input = glamorous.input({
+const Input = styled.input({
   width: 'calc(100% - 40px)',
   borderRadius: '3px 0 0 3px',
   height: '40px',
@@ -52,7 +53,7 @@ const Input = glamorous.input({
   },
 })
 
-const Controls = glamorous.div({
+const Controls = styled.div({
   display: 'flex',
 })
 

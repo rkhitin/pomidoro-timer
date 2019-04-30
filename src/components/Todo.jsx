@@ -1,6 +1,8 @@
 // @flow
 import React from 'react'
-import glamorous from 'glamorous'
+import styled from '@emotion/styled'
+
+
 import colors from '../constants/colors'
 
 const getItemStyle = (draggableStyle, isDragging) => ({
@@ -19,11 +21,11 @@ const getItemStyle = (draggableStyle, isDragging) => ({
   ...draggableStyle,
 })
 
-const Todo = glamorous.div({
+const Todo = styled.div({
   width: '100%',
 })
 
-const RemoveButton = glamorous.span({
+const RemoveButton = styled.span({
   cursor: 'pointer',
   color: colors.red,
   textAlign: 'center',
@@ -34,20 +36,20 @@ const RemoveButton = glamorous.span({
   },
 })
 
-const CompletenesWrapper = glamorous.div({
+const CompletenesWrapper = styled.div({
   textAlign: 'center',
   width: '24px',
   height: '24px',
   marginRight: '10px',
 })
 
-const Text = glamorous.div({}, ({ isCompleted }) => ({
-  textDecoration: isCompleted ? 'line-through' : 'none',
-  width: 'calc(100% - 40px)',
-  padding: '3px 0',
-}))
+const Text = styled.div`
+  width: calc(100% - 40px);
+  padding: 3px 0;
+  text-decoration: ${({ isCompleted }) => isCompleted ? 'line-through' : 'none'}
+`
 
-const CompletenesAndText = glamorous.div({
+const CompletenesAndText = styled.div({
   display: 'flex',
   alignItems: 'center',
   width: 'calc(100% - 40px)',

@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import glamorous from 'glamorous'
+import styled from '@emotion/styled'
 import { Helmet } from 'react-helmet'
 
 import Nav from './Nav'
@@ -14,14 +14,14 @@ import Faq from '../pages/Faq'
 import 'normalize.css/normalize.css'
 import '../styles/base.css'
 
-const Title = glamorous.h1({
+const Title = styled.h1({
   fontSize: '25px',
   fontWeight: '400',
   textAlign: 'center',
   margin: '0 0 20px',
 })
 
-const App = glamorous.div({
+const App = styled.div({
   backgroundColor: 'white',
   borderRadius: '5px',
   padding: '0',
@@ -47,7 +47,7 @@ const App = glamorous.div({
   },
 })
 
-const Content = glamorous.div({
+const Content = styled.div({
   flex: 1,
 })
 

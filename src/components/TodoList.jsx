@@ -29,8 +29,8 @@ const TodoList = ({
           ref={provided.innerRef}
           style={getListStyle(snapshot.isDraggingOver)}
         >
-          {todos.map(todo => (
-            <Draggable key={todo.id} draggableId={todo.id}>
+          {todos.map((todo, i) => (
+            <Draggable key={todo.id} index={i} draggableId={todo.id}>
               {TodoComponent.bind(null, todo, remove, toggleCompleteness)}
             </Draggable>
           ))}

@@ -1,10 +1,11 @@
 // @flow
 import React from 'react'
-import glamorous from 'glamorous'
+import styled from '@emotion/styled'
+
 import Circle from './Circle'
 import TimerControls from './TimerControls'
 
-const Watch = glamorous.div({
+const Watch = styled.div({
   width: '90%',
   display: 'flex',
   justifyContent: 'center',
@@ -24,7 +25,7 @@ const Watch = glamorous.div({
   },
 })
 
-const TimeCounter = glamorous.div({
+const TimeCounter = styled.div({
   fontSize: '40px',
   textAlign: 'center',
   marginBottom: '10px',
@@ -34,7 +35,7 @@ const TimeCounter = glamorous.div({
   },
 })
 
-const CircleContent = glamorous.div({
+const CircleContent = styled.div({
   position: 'absolute',
   left: 0,
   right: 0,
