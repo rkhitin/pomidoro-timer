@@ -52,7 +52,7 @@ const Content = styled.div({
 })
 
 const AppWithRouter = ({ timer }: { timer: number }) => (
-  <Router basename="https://rkhitin.github.io/pomidoro-timer">
+  <Router basename="/pomidoro-timer">
     <App>
       <Content>
         <Helmet>

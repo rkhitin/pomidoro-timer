@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/pomidoro-timer/static/css/main.ef503aa7.chunk.css",
+    "main.js": "/pomidoro-timer/static/js/main.1b9cb7b4.chunk.js",
+    "main.js.map": "/pomidoro-timer/static/js/main.1b9cb7b4.chunk.js.map",
+    "runtime~main.js": "/pomidoro-timer/static/js/runtime~main.9e8e3878.js",
+    "runtime~main.js.map": "/pomidoro-timer/static/js/runtime~main.9e8e3878.js.map",
+    "static/css/2.764ccc25.chunk.css": "/pomidoro-timer/static/css/2.764ccc25.chunk.css",
+    "static/js/2.d53c6920.chunk.js": "/pomidoro-timer/static/js/2.d53c6920.chunk.js",
+    "static/js/2.d53c6920.chunk.js.map": "/pomidoro-timer/static/js/2.d53c6920.chunk.js.map",
+    "index.html": "/pomidoro-timer/index.html",
+    "precache-manifest.ab777e42c5777a2e09bf9c1a4aca4d4e.js": "/pomidoro-timer/precache-manifest.ab777e42c5777a2e09bf9c1a4aca4d4e.js",
+    "service-worker.js": "/pomidoro-timer/service-worker.js",
+    "static/css/2.764ccc25.chunk.css.map": "/pomidoro-timer/static/css/2.764ccc25.chunk.css.map",
+    "static/css/main.ef503aa7.chunk.css.map": "/pomidoro-timer/static/css/main.ef503aa7.chunk.css.map"
+  }
+}
